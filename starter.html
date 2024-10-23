@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AutoFill Extension</title>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="auth-section section">
+    <h2>Login</h2>
+    <input id="email" type="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Password">
+    <button id="loginBtn">Login</button>
+<script>
+    document.getElementById('loginBtn').addEventListener('click', function() {
+        // Your JavaScript function call here
+        loginFunction();
+    });
+
+    function loginFunction() {
+        // Function implementation
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        console.log('Email:', email);
+        console.log('Password:', password);
+        // Add your login logic here
+        if (email && password) {
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('email', email);
+            alert('Login successful!');
+            // Redirect to another page if needed
+            window.location.href = 'index.html';
+        } else {
+            alert('Please enter valid details!');
+        }
+    }
+</script>
+  </div>
+  <div class="footer">
+    <p>AutoFill Extension © 2024</p>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

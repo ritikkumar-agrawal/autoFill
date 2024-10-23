@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "AutoForm Filler",
+  "version": "1.0",
+  "description": "Store user details and auto-fill forms on Google sites.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.google.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
